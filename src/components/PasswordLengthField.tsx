@@ -30,24 +30,26 @@ const PasswordLengthField = ({ field }: PasswordLengthFieldProps) => {
             if (field.value != values[0])
               field.onChange({ target: { value: values[0] } });
           }}
-          renderTrack={({ props, children }) => (
-            <div
-              {...props}
-              className="flex-1 flex w-full bg-neutral-200 dark:bg-neutral-800 rounded-full h-2.5"
-            >
+          renderTrack={({ props: { ref, ...restProps }, children }) => (
+            <div className="flex-1 flex w-full h-5" {...restProps}>
               <div
-                className="bg-blue-600 h-2.5 rounded-full"
-                style={{
-                  width: `${widthPercent}%`,
-                }}
-              ></div>
-              {children}
+                className="self-center w-full bg-neutral-200 dark:bg-neutral-800 rounded-full h-2.5 relative"
+                ref={ref}
+              >
+                <div
+                  className="bg-blue-600 h-2.5 rounded-full"
+                  style={{
+                    width: `${widthPercent}%`,
+                  }}
+                ></div>
+                {children}
+              </div>
             </div>
           )}
           renderThumb={({ props }) => (
             <div
               {...props}
-              className="w-5 h-5 rounded-full bg-blue-600 shadow-sm transition-shadow focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-40"
+              className="top-0 left-0 w-5 h-5 rounded-full bg-blue-600 shadow-sm transition-shadow focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-40"
             />
           )}
         />
