@@ -1,20 +1,43 @@
 @tailwind base;
+
+@layer base {
+  @font-face {
+    font-family: 'Inter var';
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: normal;
+    font-named-instance: 'Regular';
+    src: url('../fonts/Inter-roman.var.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Inconsolata';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/Inconsolata-Regular.woff2') format('woff2');
+  }
+
+  body {
+    @apply antialiased bg-neutral-100 dark:bg-black dark:text-white;
+  }
+
+  h1 {
+    @apply text-center text-2xl font-bold sm:text-3xl;
+  }
+
+  b {
+    @apply font-semibold;
+  }
+
+  strong {
+    @apply font-bold;
+  }
+
+  a {
+    @apply border-b-2 border-neutral-600 dark:border-neutral-400 transition duration-300 hover:border-b-4 hover:border-blue-600 focus:border-blue-600 focus:outline-none;
+  }
+}
+
 @tailwind components;
 @tailwind utilities;
-
-@font-face {
-  font-family: 'Inter var';
-  font-weight: 100 900;
-  font-display: swap;
-  font-style: normal;
-  font-named-instance: 'Regular';
-  src: url("../fonts/Inter-roman.var.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: 'Inconsolata';
-  font-style:  normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("../fonts/Inconsolata-Regular.woff2") format("woff2");
-}

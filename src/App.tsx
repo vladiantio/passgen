@@ -94,7 +94,7 @@ function App() {
   return (
     <div className="max-w-3xl mx-auto p-2">
       <header>
-        <h1 className="text-2xl sm:text-3xl font-bold text-center mt-4">
+        <h1 className="mt-4">
           Generador de contraseñas
         </h1>
       </header>
@@ -204,6 +204,9 @@ function App() {
           </div>
         </Frame>
       </main>
+      <footer className="mt-6">
+        <p className="text-sm text-center">Ver código en <a href="https://github.com/vlantio/password-generator" target="_blank"><b>GitHub</b></a></p>
+      </footer>
     </div>
   );
 }
