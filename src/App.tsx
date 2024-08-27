@@ -92,14 +92,15 @@ function App() {
   );
 
   return (
-    <div className="max-w-3xl mx-auto p-2">
+    <div className="max-w-screen-md mx-auto p-2">
       <header>
-        <h1 className="mt-4">
+        <nav></nav>
+        <h1 className="mt-8">
           Generador de contraseñas
         </h1>
       </header>
-      <main>
-        <Frame className="p-2 mt-4 space-y-2">
+      <main className="flex flex-col gap-4 mt-6">
+        <Frame className="p-2 space-y-2">
           <div className="flex items-center space-x-2">
             <input
               type={isPasswordHidden ? 'password' : 'text'}
@@ -151,7 +152,7 @@ function App() {
             <PasswordScore score={passwordScore} />
           </div>
         </Frame>
-        <Frame className="p-4 mt-4">
+        <Frame className="p-4">
           <div className="flex flex-wrap gap-4">
             <div className="flex-auto w-full sm:w-0">
               <Controller

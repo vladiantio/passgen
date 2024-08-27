@@ -42,7 +42,7 @@ const Tooltip = ({ children, content, placement }: TooltipProps) => {
       {cloneElement(children, newChildProps)}
       {open && (
         <div
-          className="w-max max-w-xs backdrop-blur bg-white !bg-opacity-60 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-lg text-sm shadow py-2 px-3 !m-0 z-50"
+          className="w-max max-w-xs backdrop-blur bg-white !bg-opacity-60 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm shadow py-2 px-3 !m-0 z-50 text-center text-pretty"
           ref={floating}
           role="tooltip"
           style={{
