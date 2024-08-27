@@ -15,7 +15,7 @@ const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
       <div className="flex items-center">
         <input
           type="radio"
-          className="form-radio checked:!bg-current checked:!border-transparent dark:bg-neutral-700 dark:border-neutral-600 dark:!ring-offset-neutral-800 transition mr-2"
+          className="form-radio checked:!bg-blue-600 checked:!border-transparent dark:bg-slate-700 dark:border-slate-600 focus:ring-blue-600 focus:ring-offset-slate-100 dark:focus:ring-offset-slate-800 transition mr-2"
           id={id}
           ref={ref}
           {...restProps}

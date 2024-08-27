@@ -7,7 +7,7 @@ type FrameProps = {
 
 const Frame = ({ className, children }: FrameProps) => (
   <div
-    className={`bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl shadow ${className}`}
+    className={`bg-white !bg-opacity-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-800 rounded-xl shadow ${className}`}
   >
     {children}
   </div>

@@ -13,7 +13,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, ref) => {
     <div className="flex items-center">
       <input
         type="checkbox"
-        className="form-checkbox checked:!bg-current checked:!border-transparent dark:bg-neutral-700 dark:border-neutral-600 dark:!ring-offset-neutral-800 transition rounded mr-2"
+        className="form-checkbox checked:!bg-indigo-600 checked:!border-transparent dark:bg-slate-700 dark:border-slate-600 focus:ring-indigo-600 focus:ring-offset-slate-100 dark:focus:ring-offset-slate-800 transition rounded mr-2"
         id={id}
         ref={ref}
         {...restProps}
