@@ -14,8 +14,19 @@ export type PasswordSettings = {
   withSymbols?: boolean;
 };
 
+export const defaultPasswordLength = 16;
+
+export const defaultSettings: PasswordSettings = {
+  passwordLength: defaultPasswordLength,
+  mode: 'memo',
+  withLowercase: true,
+  withUppercase: true,
+  withNumbers: true,
+  withSymbols: true,
+};
+
 function generateMemorablePassword(settings: PasswordSettings) {
-  const passwordLength = settings.passwordLength ?? 16;
+  const passwordLength = settings.passwordLength ?? defaultPasswordLength;
   const syllables = getRandomInt(2, (passwordLength - 4) / 2);
   const wordLength = syllables * 2;
   const numbersLength = passwordLength - wordLength;

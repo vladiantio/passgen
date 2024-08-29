@@ -1,33 +1,39 @@
 import { ControllerRenderProps } from 'react-hook-form';
 import { Range } from 'react-range';
 
+import {
+  PasswordSettings,
+  defaultPasswordLength,
+} from '@/utils/PasswordGenerator';
+
 type PasswordLengthFieldProps = {
-  field: ControllerRenderProps<any, any>;
+  field: ControllerRenderProps<PasswordSettings, 'passwordLength'>;
 };
 
 const PasswordLengthField = ({ field }: PasswordLengthFieldProps) => {
   const min = 4,
-    max = 64;
-  const widthPercent = ((field.value - min) * 100) / (max - min);
+    max = 64,
+    value = field.value ?? defaultPasswordLength;
+  const widthPercent = ((value - min) * 100) / (max - min);
   return (
     <div className="flex-none flex flex-col space-y-2">
       <label htmlFor="inputPasswordLength">Longitud</label>
       <div className="flex items-center space-x-4">
         <input
           type="number"
-          className="form-input w-20 dark:bg-slate-800 transition border-slate-200 dark:border-slate-700 rounded-xl shadow"
+          className="form-input w-20 dark:bg-slate-800 transition border-slate-200 dark:border-slate-700 rounded-xl shadow focus:border-sky-600 focus:ring-sky-600"
           id="inputPasswordLength"
           min={min}
           max={max}
           {...field}
         />
         <Range
-          values={[field.value]}
+          values={[value]}
           step={1}
           min={min}
           max={max}
           onChange={(values) => {
-            if (field.value != values[0])
+            if (value != values[0])
               field.onChange({ target: { value: values[0] } });
           }}
           renderTrack={({ props: { ref, ...restProps }, children }) => (
