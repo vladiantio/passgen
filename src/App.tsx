@@ -1,9 +1,13 @@
-import ArrowPathIcon from '@heroicons/react/24/outline/ArrowPathIcon';
-import ClipboardDocumentCheckIcon from '@heroicons/react/24/outline/ClipboardDocumentCheckIcon';
-import ClipboardDocumentIcon from '@heroicons/react/24/outline/ClipboardDocumentIcon';
-import EyeIcon from '@heroicons/react/24/outline/EyeIcon';
-import EyeSlashIcon from '@heroicons/react/24/outline/EyeSlashIcon';
-import QuestionMarkCircleIcon from '@heroicons/react/24/outline/QuestionMarkCircleIcon';
+import {
+  ArrowPathIcon,
+  ClipboardDocumentCheckIcon,
+  ClipboardDocumentIcon,
+  EyeIcon,
+  EyeSlashIcon,
+  QuestionMarkCircleIcon,
+  CodeBracketIcon,
+  GitHubIcon,
+} from './icons';
 import { zxcvbnAsync } from '@zxcvbn-ts/core';
 import copy from 'copy-to-clipboard';
 import { useEffect, useState } from 'react';
@@ -16,7 +20,7 @@ import PasswordLengthField from './components/PasswordLengthField';
 import PasswordScore from './components/PasswordScore';
 import RadioButton from './components/RadioButton';
 import Tooltip from './components/Tooltip';
-import { PasswordSettings, generatePassword } from './utils/PasswordGenerator';
+import { PasswordSettings, defaultSettings, generatePassword } from './utils/PasswordGenerator';
 import {
   getStorageValue,
   setStorageValue,
@@ -27,14 +31,7 @@ import useDebouncedEffect from './utils/useDebouncedEffect';
 function App() {
   const initialSettings: PasswordSettings = getStorageValue(
     'passwordSettings',
-    {
-      passwordLength: 16,
-      mode: 'memo',
-      withLowercase: true,
-      withUppercase: true,
-      withNumbers: true,
-      withSymbols: true,
-    },
+    defaultSettings,
   );
 
   const [password, setPassword] = useState(generatePassword(initialSettings));
@@ -92,14 +89,19 @@ function App() {
   );
 
   return (
-    <div className="max-w-screen-md mx-auto p-2">
-      <header>
-        <nav></nav>
-        <h1 className="mt-8">
-          Generador de contraseñas
-        </h1>
-      </header>
-      <main className="flex flex-col gap-4 mt-6">
+    <>
+      <nav className="flex items-center justify-between gap-6 p-6">
+        <div className="flex items-center gap-2">
+          <img className="size-8" src="icon.svg" />
+          <h1>PassGen</h1>
+        </div>
+        <div className="flex items-center gap-6">
+          <a href="https://github.com/vlantio" rel="noopener noreferrer" target="_blank" title="GitHub">
+            <GitHubIcon className="size-6" />
+          </a>
+        </div>
+      </nav>
+      <main className="max-w-screen-md mx-auto my-2 px-6 flex flex-col gap-4">
         <Frame className="p-2 space-y-2">
           <div className="flex items-center space-x-2">
             <input
@@ -107,6 +109,7 @@ function App() {
               className="bg-transparent flex-1 w-0 font-mono text-2xl p-1 outline-none"
               name="password"
               placeholder="Escribe una contraseña..."
+              autoComplete="new-password"
               value={password}
               onChange={({ target: { value } }) => onChangePassword(value)}
             />
@@ -205,10 +208,10 @@ function App() {
           </div>
         </Frame>
       </main>
-      <footer className="mt-6">
-        <p className="text-sm text-center">Ver código en <a href="https://github.com/vlantio/password-generator" target="_blank"><b>GitHub</b></a></p>
+      <footer className="p-6">
+        <p className="text-sm text-center"><CodeBracketIcon className="size-4 inline-block" /> Ver código en <a href="https://github.com/vlantio/password-generator" target="_blank"><b>GitHub</b></a></p>
       </footer>
-    </div>
+    </>
   );
 }
 
