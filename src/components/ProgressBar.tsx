@@ -11,17 +11,17 @@ type ProgressBarProps = AriaAttributes & {
 
 const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
   ({ color, min, max, value, ...restProps }, ref) => {
-    let classColor = 'from-sky-600 to-indigo-600';
+    let classColor = 'from-secondary to-accent';
 
     switch (color) {
       case 'success':
-        classColor = 'from-green-600 to-green-600';
+        classColor = 'from-success to-success';
         break;
       case 'danger':
-        classColor = 'from-red-600 to-red-600';
+        classColor = 'from-danger to-danger';
         break;
       case 'warning':
-        classColor = 'from-yellow-500 to-yellow-500';
+        classColor = 'from-warning to-warning';
         break;
     }
 
@@ -32,7 +32,7 @@ const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
 
     return (
       <div
-        className="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2.5"
+        className="w-full bg-field rounded-full h-2.5"
         role="progressbar"
         ref={ref}
         aria-valuemin={min}

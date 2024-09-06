@@ -1,0 +1,43 @@
+:root {
+  --font-sans: 'Rubik Variable';
+  --font-mono: 'Inconsolata Variable';
+
+  --hue-primary: 224;
+  --hue-secondary: calc(var(--hue-primary) - 20);
+  --hue-accent: calc(var(--hue-primary) + 20);
+  --intensity: 1;
+
+  --color-body: 0, 0%, 0%;
+  --color-background: var(--hue-primary), calc(40% * var(--intensity)), 92%;
+  --color-soft: var(--hue-primary), calc(36% * var(--intensity)), 96%;
+  --color-foreground: var(--hue-primary), calc(84% * var(--intensity)), 5%;
+  --color-muted: var(--hue-primary), calc(20% * var(--intensity)), 48%;
+  --color-primary: var(--hue-primary), calc(100% * var(--intensity)), 40%;
+  --color-secondary: var(--hue-secondary), calc(100% * var(--intensity)), 60%;
+  --color-accent: var(--hue-accent), calc(100% * var(--intensity)), 60%;
+  --color-field: 0, 0%, 100%;
+
+  --color-danger: 0, 72%, 50%;
+  --color-warning: 45, 92%, 48%;
+  --color-success: 142, 76%, 36%;
+}
+
+:root input:hover {
+  --color-field: var(--hue-primary), calc(30% * var(--intensity)), 98%;
+}
+
+html.dark {
+  --color-body: 0, 0%, 100%;
+  --color-background: var(--hue-primary), calc(40% * var(--intensity)), 10%;
+  --color-soft: var(--hue-primary), calc(36% * var(--intensity)), 16%;
+  --color-foreground: var(--hue-primary), calc(40% * var(--intensity)), 98%;
+  --color-muted: var(--hue-primary), calc(20% * var(--intensity)), 64%;
+  --color-primary: var(--hue-primary), calc(100% * var(--intensity)), 68%;
+  --color-secondary: var(--hue-secondary), calc(100% * var(--intensity)), 68%;
+  --color-accent: var(--hue-accent), calc(100% * var(--intensity)), 68%;
+  --color-field: var(--hue-primary), calc(30% * var(--intensity)), 26%;
+}
+
+html.dark input:hover {
+  --color-field: var(--hue-primary), calc(30% * var(--intensity)), 30%;
+}

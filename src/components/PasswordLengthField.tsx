@@ -21,7 +21,7 @@ const PasswordLengthField = ({ field }: PasswordLengthFieldProps) => {
       <div className="flex items-center space-x-4">
         <input
           type="number"
-          className="form-input w-20 dark:bg-slate-800 transition border-slate-200 dark:border-slate-700 rounded-xl shadow focus:border-sky-600 focus:ring-sky-600"
+          className="form-input w-20 bg-field border-field transition rounded-xl shadow focus:border-secondary focus:ring-secondary"
           id="inputPasswordLength"
           min={min}
           max={max}
@@ -39,11 +39,11 @@ const PasswordLengthField = ({ field }: PasswordLengthFieldProps) => {
           renderTrack={({ props: { ref, ...restProps }, children }) => (
             <div className="flex-1 flex w-full h-5" {...restProps}>
               <div
-                className="self-center w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2.5 relative"
+                className="self-center w-full bg-field shadow rounded-full h-2.5 relative"
                 ref={ref}
               >
                 <div
-                  className="bg-sky-600 h-2.5 rounded-full"
+                  className="bg-secondary h-2.5 rounded-full"
                   style={{
                     width: `${widthPercent}%`,
                   }}
@@ -55,7 +55,7 @@ const PasswordLengthField = ({ field }: PasswordLengthFieldProps) => {
           renderThumb={({ props }) => (
             <div
               {...props}
-              className="top-0 left-0 w-5 h-5 rounded-full bg-sky-500 shadow-sm transition-shadow focus:outline-none focus:ring-4 focus:ring-sky-600 focus:ring-opacity-40"
+              className="top-0 left-0 w-5 h-5 rounded-full bg-secondary shadow transition-shadow focus:outline-none focus:ring-4 focus:ring-secondary focus:ring-opacity-40"
             />
           )}
         />
