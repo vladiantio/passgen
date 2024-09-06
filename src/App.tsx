@@ -5,7 +5,6 @@ import {
   EyeIcon,
   EyeSlashIcon,
   QuestionMarkCircleIcon,
-  CodeBracketIcon,
   GitHubIcon,
 } from './icons';
 import { zxcvbnAsync } from '@zxcvbn-ts/core';
@@ -27,6 +26,7 @@ import {
   useLocalStorage,
 } from './utils/localStorage';
 import useDebouncedEffect from './utils/useDebouncedEffect';
+import ThemeSelector from './components/ThemeSelector';
 
 function App() {
   const initialSettings: PasswordSettings = getStorageValue(
@@ -89,19 +89,20 @@ function App() {
   );
 
   return (
-    <>
-      <nav className="flex items-center justify-between gap-6 p-6">
+    <div className="px-8 py-6">
+      <nav className="flex items-center justify-between gap-6 mb-6">
         <div className="flex items-center gap-2">
           <img className="size-8" src="icon.svg" />
           <h1>PassGen</h1>
         </div>
         <div className="flex items-center gap-6">
-          <a href="https://github.com/vladantio" rel="noopener noreferrer" target="_blank" title="GitHub">
+          <ThemeSelector />
+          <a className="transition text-body text-opacity-60 hover:text-opacity-100" href="https://github.com/vladiantio/passgen" rel="noopener noreferrer" target="_blank" title="GitHub">
             <GitHubIcon className="size-6" />
           </a>
         </div>
       </nav>
-      <main className="max-w-screen-md mx-auto my-2 px-6 flex flex-col gap-4">
+      <main className="max-w-screen-md mx-auto my-6 flex flex-col gap-4">
         <Frame className="p-2 space-y-2">
           <div className="flex items-center space-x-2">
             <input
@@ -208,10 +209,7 @@ function App() {
           </div>
         </Frame>
       </main>
-      <footer className="p-6">
-        <p className="text-sm text-center"><CodeBracketIcon className="size-4 inline-block" /> Ver código en <a href="https://github.com/vladantio/password-generator" target="_blank"><b>GitHub</b></a></p>
-      </footer>
-    </>
+    </div>
   );
 }
 

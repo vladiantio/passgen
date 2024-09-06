@@ -1,43 +1,49 @@
+@import 'root.css';
+@import 'fonts.css';
+
 @tailwind base;
 
-@layer base {
-  @font-face {
-    font-family: 'Inter var';
-    font-weight: 100 900;
-    font-display: swap;
-    font-style: normal;
-    font-named-instance: 'Regular';
-    src: url('../fonts/Inter-roman.var.woff2') format('woff2');
-  }
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: hsl(var(--color-background));
+  --tw-text-opacity: 1;
+  color: hsla(var(--color-foreground), var(--tw-text-opacity));
+  min-height: 100dvh;
+  height: auto;
+}
 
-  @font-face {
-    font-family: 'Inconsolata';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url('../fonts/Inconsolata-Regular.woff2') format('woff2');
-  }
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
 
-  body {
-    @apply antialiased min-h-dvh bg-slate-100 dark:bg-slate-900 dark:text-white;
-  }
+h1 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+}
 
-  h1 {
-    @apply text-center text-xl font-bold sm:text-2xl;
-  }
+b {
+  font-weight: 600;
+}
 
-  b {
-    @apply font-semibold;
-  }
-
-  strong {
-    @apply font-bold;
-  }
-
-  a.link {
-    @apply border-b-2 border-slate-600 dark:border-slate-400 transition duration-300 hover:border-b-4 hover:border-blue-600 focus:border-blue-600 focus:outline-none;
-  }
+strong {
+  font-weight: 700;
 }
 
 @tailwind components;
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  position: absolute;
+}
+
+.dropdown-end .dropdown-content {
+  inset-inline-end: 0;
+}
+
 @tailwind utilities;

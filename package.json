@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@floating-ui/react": "^0.15.1",
+    "@fontsource-variable/inconsolata": "^5.0.19",
+    "@fontsource-variable/rubik": "^5.0.23",
     "@heroicons/react": "^2.1.5",
     "@tailwindcss/forms": "^0.5.7",
     "@zxcvbn-ts/core": "^2.2.1",
