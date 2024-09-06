@@ -1,6 +1,6 @@
 <div align="center">
 
-<img alt="Logo" src="https://vladiantio.github.io/passgen/icon.svg" style="width:8rem;">
+<img alt="Logo" src="https://vladiantio.github.io/passgen/icon.svg?v=1" style="width:8rem;">
 
 # PassGen
 
