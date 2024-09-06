@@ -4,13 +4,13 @@
 
 # PassGen
 
-![screenshot](https://github.com/user-attachments/assets/26c3c6e9-0632-45e7-923d-b0dabfce9b08)
-
 Esta es una recreación del [Generador de contraseñas de LastPass](https://www.lastpass.com/features/password-generator).
 
 [¡Visita el sitio aquí!](https://vladiantio.github.io/passgen)
 
 ![Deployment](https://github.com/vladiantio/passgen/actions/workflows/deploy.yml/badge.svg)
+
+![screenshot](https://github.com/user-attachments/assets/c4a0e6a4-6b26-41f4-bffc-e878228f729c)
 
 </div>
 
