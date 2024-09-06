@@ -96,7 +96,7 @@ function App() {
           <h1>PassGen</h1>
         </div>
         <div className="flex items-center gap-6">
-          <a href="https://github.com/vlantio" rel="noopener noreferrer" target="_blank" title="GitHub">
+          <a href="https://github.com/vladantio" rel="noopener noreferrer" target="_blank" title="GitHub">
             <GitHubIcon className="size-6" />
           </a>
         </div>
@@ -209,7 +209,7 @@ function App() {
         </Frame>
       </main>
       <footer className="p-6">
-        <p className="text-sm text-center"><CodeBracketIcon className="size-4 inline-block" /> Ver código en <a href="https://github.com/vlantio/password-generator" target="_blank"><b>GitHub</b></a></p>
+        <p className="text-sm text-center"><CodeBracketIcon className="size-4 inline-block" /> Ver código en <a href="https://github.com/vladantio/password-generator" target="_blank"><b>GitHub</b></a></p>
       </footer>
     </>
   );
