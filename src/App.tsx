@@ -1,32 +1,37 @@
-import {
-  ArrowPathIcon,
-  ClipboardDocumentCheckIcon,
-  ClipboardDocumentIcon,
-  EyeIcon,
-  EyeSlashIcon,
-  QuestionMarkCircleIcon,
-  GitHubIcon,
-} from './icons';
 import { zxcvbnAsync } from '@zxcvbn-ts/core';
 import copy from 'copy-to-clipboard';
 import { useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
+import styles from './App.module.css';
 import Checkbox from './components/Checkbox';
 import Frame from './components/Frame';
 import PasswordButton from './components/PasswordButton';
 import PasswordLengthField from './components/PasswordLengthField';
 import PasswordScore from './components/PasswordScore';
 import RadioButton from './components/RadioButton';
+import ThemeSelector from './components/ThemeSelector';
 import Tooltip from './components/Tooltip';
-import { PasswordSettings, defaultSettings, generatePassword } from './utils/PasswordGenerator';
+import {
+  ArrowPathIcon,
+  ClipboardDocumentCheckIcon,
+  ClipboardDocumentIcon,
+  EyeIcon,
+  EyeSlashIcon,
+  GitHubIcon,
+  QuestionMarkCircleIcon,
+} from './icons';
+import {
+  PasswordSettings,
+  defaultSettings,
+  generatePassword,
+} from './utils/PasswordGenerator';
 import {
   getStorageValue,
   setStorageValue,
   useLocalStorage,
 } from './utils/localStorage';
 import useDebouncedEffect from './utils/useDebouncedEffect';
-import ThemeSelector from './components/ThemeSelector';
 
 function App() {
   const initialSettings: PasswordSettings = getStorageValue(
@@ -89,25 +94,31 @@ function App() {
   );
 
   return (
-    <div className="px-8 py-6">
-      <nav className="flex items-center justify-between gap-6 mb-6">
-        <div className="flex items-center gap-2">
-          <img className="size-8" src="icon.svg" />
+    <div className={styles.page}>
+      <nav className={styles.nav}>
+        <div className={styles.brand}>
+          <img className={styles.logo} src="icon.svg" />
           <h1>PassGen</h1>
         </div>
-        <div className="flex items-center gap-6">
+        <div className={styles.navLinks}>
           <ThemeSelector />
-          <a className="transition text-body text-opacity-60 hover:text-opacity-100" href="https://github.com/vladiantio/passgen" rel="noopener noreferrer" target="_blank" title="GitHub">
-            <GitHubIcon className="size-6" />
+          <a
+            className={styles.link}
+            href="https://github.com/vladiantio/passgen"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="GitHub"
+          >
+            <GitHubIcon className={styles.icon} />
           </a>
         </div>
       </nav>
-      <main className="max-w-screen-md mx-auto my-6 flex flex-col gap-4">
-        <Frame className="p-2 space-y-2">
-          <div className="flex items-center space-x-2">
+      <main className={styles.main}>
+        <Frame className={styles.passwordFrame}>
+          <div className={styles.row}>
             <input
               type={isPasswordHidden ? 'password' : 'text'}
-              className="bg-transparent flex-1 w-0 font-mono text-2xl p-1 outline-none"
+              className={styles.passwordInput}
               name="password"
               placeholder="Escribe una contraseña..."
               autoComplete="new-password"
@@ -116,39 +127,39 @@ function App() {
             />
             <Tooltip content="Copiar">
               <PasswordButton
-                className="flex-none"
+                className={styles.iconButton}
                 disabled={password.length == 0}
                 color={isCopied ? 'success' : 'primary'}
                 onClick={copyPassword}
                 aria-label="Copiar"
               >
                 {isCopied ? (
-                  <ClipboardDocumentCheckIcon className="w-6 h-6" />
+                  <ClipboardDocumentCheckIcon className={styles.icon} />
                 ) : (
-                  <ClipboardDocumentIcon className="w-6 h-6" />
+                  <ClipboardDocumentIcon className={styles.icon} />
                 )}
               </PasswordButton>
             </Tooltip>
             <Tooltip content={isPasswordHidden ? 'Mostrar' : 'Ocultar'}>
               <PasswordButton
-                className="flex-none"
+                className={styles.iconButton}
                 onClick={togglePasswordHidden}
                 aria-label={isPasswordHidden ? 'Mostrar' : 'Ocultar'}
               >
                 {isPasswordHidden ? (
-                  <EyeSlashIcon className="w-6 h-6" />
+                  <EyeSlashIcon className={styles.icon} />
                 ) : (
-                  <EyeIcon className="w-6 h-6" />
+                  <EyeIcon className={styles.icon} />
                 )}
               </PasswordButton>
             </Tooltip>
             <Tooltip content="Regenerar">
               <PasswordButton
-                className="flex-none"
+                className={styles.iconButton}
                 onClick={() => doSetPassword(settings)}
                 aria-label="Regenerar"
               >
-                <ArrowPathIcon className="w-6 h-6" />
+                <ArrowPathIcon className={styles.icon} />
               </PasswordButton>
             </Tooltip>
           </div>
@@ -156,24 +167,24 @@ function App() {
             <PasswordScore score={passwordScore} />
           </div>
         </Frame>
-        <Frame className="p-4">
-          <div className="flex flex-wrap gap-4">
-            <div className="flex-auto w-full sm:w-0">
+        <Frame className={styles.settingsFrame}>
+          <div className={styles.grid}>
+            <div className={styles.lengthColumn}>
               <Controller
                 control={control}
                 name="passwordLength"
                 render={({ field }) => <PasswordLengthField field={field} />}
               />
             </div>
-            <div className="flex-auto sm:flex-none space-y-1">
+            <div className={styles.radioGroup}>
               <RadioButton id="m1" value="memo" {...register('mode')}>
                 Fácil de recordar
                 <Tooltip
                   content="Genera una palabra y números al azar para una contraseña fácil de leer y recordar."
                   placement="bottom"
                 >
-                  <span className="inline-block ml-2 opacity-60">
-                    <QuestionMarkCircleIcon className="w-6 h-6" />
+                  <span className={styles.hint}>
+                    <QuestionMarkCircleIcon className={styles.icon} />
                   </span>
                 </Tooltip>
               </RadioButton>
@@ -183,15 +194,16 @@ function App() {
                   content="Genera cualquier combinación de caracteres para una contraseña más segura."
                   placement="bottom"
                 >
-                  <span className="inline-block ml-2 opacity-60">
-                    <QuestionMarkCircleIcon className="w-6 h-6" />
+                  <span className={styles.hint}>
+                    <QuestionMarkCircleIcon className={styles.icon} />
                   </span>
                 </Tooltip>
               </RadioButton>
             </div>
             <div
-              className={`flex-auto sm:flex-none space-y-1 ${settings.mode == 'memo' ? 'invisible' : ''
-                }`}
+              className={`${styles.checkboxGroup}${
+                settings.mode == 'memo' ? ` ${styles.invisible}` : ''
+              }`}
             >
               <Checkbox id="withUppercase" {...register('withUppercase')}>
                 Mayúsculas

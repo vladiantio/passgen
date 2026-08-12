@@ -1,5 +1,7 @@
 import { ReactNode, forwardRef } from 'react';
 
+import styles from './RadioButton.module.css';
+
 type RadioButtonProps = {
   children: ReactNode;
   id: string;
@@ -12,15 +14,15 @@ const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
     const { children, id, ...restProps } = props;
 
     return (
-      <div className="flex items-center">
+      <div className={styles.row}>
         <input
           type="radio"
-          className="form-radio checked:!bg-primary checked:!border-transparent bg-field border-field focus:ring-primary focus:ring-offset-soft shadow transition mr-2"
+          className={styles.radio}
           id={id}
           ref={ref}
           {...restProps}
         />
-        <label className="flex items-center" htmlFor={id}>
+        <label className={styles.label} htmlFor={id}>
           {children}
         </label>
       </div>

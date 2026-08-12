@@ -27,7 +27,14 @@ const PasswordScore = ({ score }: PasswordScoreProps) => {
 
   return (
     <Tooltip
-      content={<div><p>Puntaje: <strong>{score} / 4</strong></p><p>{description}</p></div>}
+      content={
+        <div>
+          <p>
+            Puntaje: <strong>{score} / 4</strong>
+          </p>
+          <p>{description}</p>
+        </div>
+      }
       placement="bottom-start"
     >
       <ProgressBar

@@ -1,0 +1,5 @@
+.frame {
+  background-color: hsla(var(--color-soft), 1);
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow);
+}

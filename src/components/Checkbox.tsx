@@ -1,5 +1,7 @@
 import { ReactNode, forwardRef } from 'react';
 
+import styles from './Checkbox.module.css';
+
 type CheckboxProps = {
   children: ReactNode;
   id: string;
@@ -10,15 +12,15 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, ref) => {
   const { children, id, ...restProps } = props;
 
   return (
-    <div className="flex items-center">
+    <div className={styles.row}>
       <input
         type="checkbox"
-        className="form-checkbox checked:!bg-accent checked:!border-transparent bg-field border-field focus:ring-accent focus:ring-offset-soft shadow transition rounded mr-2"
+        className={styles.checkbox}
         id={id}
         ref={ref}
         {...restProps}
       />
-      <label className="flex items-center" htmlFor={id}>
+      <label className={styles.label} htmlFor={id}>
         {children}
       </label>
     </div>

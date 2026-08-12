@@ -2,6 +2,8 @@ import { AriaAttributes, forwardRef } from 'react';
 
 import { Color } from '@/types/Color';
 
+import styles from './ProgressBar.module.css';
+
 type ProgressBarProps = AriaAttributes & {
   color?: Color;
   min?: number;
@@ -11,17 +13,17 @@ type ProgressBarProps = AriaAttributes & {
 
 const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
   ({ color, min, max, value, ...restProps }, ref) => {
-    let classColor = 'from-secondary to-accent';
+    let fillClass = styles.fill;
 
     switch (color) {
       case 'success':
-        classColor = 'from-success to-success';
+        fillClass = `${styles.fill} ${styles.success}`;
         break;
       case 'danger':
-        classColor = 'from-danger to-danger';
+        fillClass = `${styles.fill} ${styles.danger}`;
         break;
       case 'warning':
-        classColor = 'from-warning to-warning';
+        fillClass = `${styles.fill} ${styles.warning}`;
         break;
     }
 
@@ -32,7 +34,7 @@ const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
 
     return (
       <div
-        className="w-full bg-field rounded-full h-2.5"
+        className={styles.track}
         role="progressbar"
         ref={ref}
         aria-valuemin={min}
@@ -41,7 +43,7 @@ const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
         {...restProps}
       >
         <div
-          className={`bg-gradient-to-r ${classColor} h-2.5 rounded-full transition-all duration-300`}
+          className={fillClass}
           style={{
             width: `${widthPercent}%`,
           }}

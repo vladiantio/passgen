@@ -2,6 +2,8 @@ import { ButtonHTMLAttributes, forwardRef } from 'react';
 
 import { Color } from '@/types/Color';
 
+import styles from './PasswordButton.module.css';
+
 type PasswordButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   color?: Color;
 };
@@ -9,10 +11,9 @@ type PasswordButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 const PasswordButton = forwardRef<HTMLButtonElement, PasswordButtonProps>(
   ({ children, color, className, type, ...restProps }, ref) => (
     <button
-      className={`transition !bg-opacity-0 hover:!bg-opacity-10 focus:!bg-opacity-20 focus:outline-none rounded-full p-2 ${color == 'success'
-        ? 'text-success bg-success'
-        : 'text-accent bg-accent'
-        } disabled:!text-muted disabled:hover:!bg-opacity-0 ${className}`}
+      className={`${styles.button}${
+        color == 'success' ? ` ${styles.success}` : ''
+      } ${className}`}
       type={type ?? 'button'}
       ref={ref}
       {...restProps}

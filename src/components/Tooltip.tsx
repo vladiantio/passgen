@@ -10,6 +10,8 @@ import {
 } from '@floating-ui/react';
 import { ReactElement, ReactNode, cloneElement, useState } from 'react';
 
+import styles from './Tooltip.module.css';
+
 type TooltipProps = {
   children: ReactElement;
   content: ReactNode;
@@ -42,7 +44,7 @@ const Tooltip = ({ children, content, placement }: TooltipProps) => {
       {cloneElement(children, newChildProps)}
       {open && (
         <div
-          className="w-max max-w-xs backdrop-blur bg-field bg-opacity-75 rounded-lg text-sm shadow py-2 px-3 !m-0 z-50 text-center text-pretty"
+          className={styles.tooltip}
           ref={floating}
           role="tooltip"
           style={{

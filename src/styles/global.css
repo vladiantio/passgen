@@ -1,19 +1,20 @@
+@import 'reset.css';
 @import 'root.css';
 @import 'fonts.css';
-
-@tailwind base;
 
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: hsl(var(--color-background));
-  --tw-text-opacity: 1;
-  color: hsla(var(--color-foreground), var(--tw-text-opacity));
+  color: hsla(var(--color-foreground), 1);
   min-height: 100dvh;
   height: auto;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   text-wrap: balance;
 }
 
@@ -30,20 +31,3 @@ b {
 strong {
   font-weight: 700;
 }
-
-@tailwind components;
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  position: absolute;
-}
-
-.dropdown-end .dropdown-content {
-  inset-inline-end: 0;
-}
-
-@tailwind utilities;

@@ -15,7 +15,9 @@ export function setStorageValue<T>(key: string, value: T) {
 }
 
 export function useLocalStorage<T>(key: string, defaultValue: T) {
-  const [value, setValue] = useState<T>(() => getStorageValue<T>(key, defaultValue));
+  const [value, setValue] = useState<T>(() =>
+    getStorageValue<T>(key, defaultValue),
+  );
   useEffect(() => setStorageValue<T>(key, value), [key, value]);
   return [value, setValue] as const;
 }
