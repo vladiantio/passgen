@@ -19,6 +19,6 @@ Esta es una recreación del [Generador de contraseñas de LastPass](https://www.
 ```bash
 git clone https://github.com/vladiantio/passgen.git
 cd passgen
-npm install
-npm start
+pnpm install
+pnpm dev
 ```
